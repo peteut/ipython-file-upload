@@ -1,16 +1,23 @@
 IPython File Upload
 ===================
 
-An IPython notebook widget to upload files, using jQuery-File-Upload_.
+An IPython notebook widget to upload files, using FileReader_.
 
 Installation
 ------------
 
 Run ``pip install .`` in this directory.
 
-Examples
---------
+Usage
+-----
 
-To be written.
+.. code-block:: python
 
-.. _jQuery-File-Upload: https://github.com/blueimp/jQuery-File-Upload
+    from IPython.display import display
+    import fileupload
+
+    upload_widget = fileupload.FileUploadWidget()
+    display(upload_widget)
+
+
+.. _FileReader: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
