@@ -1,4 +1,5 @@
 import os
+import base64
 from IPython.html import widgets, install_nbextension
 from IPython.utils import traitlets
 
@@ -23,3 +24,6 @@ class FileUploadWidget(widgets.DOMWidget):
     def __init__(self, *args, **kwargs):
         install_nbextension(self._view_static, verbose=0)
         super().__init__(*args, **kwargs)
+
+    def decoded_data(self):
+        return base64.b64decode(self.data.split(',', 1)[1])
