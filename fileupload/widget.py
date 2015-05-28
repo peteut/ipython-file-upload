@@ -24,6 +24,7 @@ class FileUploadWidget(widgets.DOMWidget):
     def __init__(self, *args, **kwargs):
         install_nbextension(self._view_static, verbose=0)
         super().__init__(*args, **kwargs)
+        self._dom_classes += ('widget_item', 'btn-group')
 
     def decoded_data(self):
         return base64.b64decode(self.data.split(',', 1)[1])
