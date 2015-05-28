@@ -7,30 +7,17 @@ define([
     var FileUploadView = widget.DOMWidgetView.extend({
         render: function () {
 
-            var $span = $('<span />')
+            var $label = $('<label />')
             .text('Browse')
-            .addClass('btn btn-default btn-file')
-            .css('position', 'relative')
-            .css('overflow', 'hidden')
+            .addClass('btn btn-default')
+            .attr('for', 'fileupload')
             .appendTo(this.$el);
 
             var $input = $('<input />')
             .attr('type', 'file')
             .attr('id', 'fileupload')
-            .css('position', 'absolute')
-            .css('top', '0')
-            .css('right', '0')
-            .css('min-width', '100%')
-            .css('min-height', '100%')
-            .css('font-size', '100px')
-            .css('text-align', 'right')
-            .css('filter', 'alpha(opacity=0)')
-            .css('opacity', '0')
-            .css('outline', 'none')
-            .css('background', 'white')
-            .css('cursor', 'inherit')
-            .css('display', 'block')
-            .appendTo($span);
+            .css('display', 'none')
+            .appendTo($label);
 
             var that = this;
             $input.on(
