@@ -22,7 +22,11 @@ class FileUploadWidget(widgets.DOMWidget):
     filename = traitlets.Unicode(help='Filename of `data`.', sync=True)
 
     def __init__(self, *args, **kwargs):
-        install_nbextension(self._view_static, verbose=0)
+        try:
+            install_nbextension(self._view_static, verbose=0)
+        except PermissionError:
+            install_nbextension(self._view_static, user=True, verbose=0)
+
         super().__init__(*args, **kwargs)
         self._dom_classes += ('widget_item', 'btn-group')
 
