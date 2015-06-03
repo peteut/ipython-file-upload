@@ -6,7 +6,9 @@ An IPython notebook widget to upload files, using FileReader_.
 Installation
 ------------
 
-Run ``pip install .`` in this directory.
+Install using pip::
+
+    pip install -U git+https://github.com/peteut/ipython-file-upload#egg=fileupload
 
 Usage
 -----
