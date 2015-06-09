@@ -21,7 +21,7 @@ Usage
     upload_widget = fileupload.FileUploadWidget()
     display(upload_widget)
 
-Base64 data is synced to the ``data``  member, decoded data can be
-obtained with the ``decoded_data`` member.
+Base64 data is synced to the ``data_base64``  member, decoded data can be
+obtained from ``data``.
 
 .. _FileReader: https://developer.mozilla.org/en-US/docs/Web/API/FileReader

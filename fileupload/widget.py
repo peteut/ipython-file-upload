@@ -18,8 +18,10 @@ class FileUploadWidget(widgets.DOMWidget):
         os.path.join('nbextensions', packet_name, module_name),
         sync=True)
 
-    data = traitlets.Unicode(help='File content, base64 encoded.', sync=True)
     filename = traitlets.Unicode(help='Filename of `data`.', sync=True)
+    data_base64 = traitlets.Unicode(help='File content, base64 encoded.',
+                                    sync=True)
+    data = traitlets.Bytes(help='File content.')
 
     def __init__(self, *args, **kwargs):
         try:
@@ -30,5 +32,5 @@ class FileUploadWidget(widgets.DOMWidget):
         super().__init__(*args, **kwargs)
         self._dom_classes += ('widget_item', 'btn-group')
 
-    def decoded_data(self):
-        return base64.b64decode(self.data.split(',', 1)[1])
+    def _data_base64_changed(self, *args):
+        self.data = base64.b64decode(self.data_base64.split(',', 1)[1])

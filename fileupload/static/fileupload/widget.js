@@ -29,7 +29,7 @@ define([
                         var fileReader = new FileReader();
                         fileReader.onload = function () {
 
-                            that.model.set('data', fileReader.result);
+                            that.model.set('data_base64', fileReader.result);
                             that.touch();
                         };
                         fileReader.readAsDataURL(file);
