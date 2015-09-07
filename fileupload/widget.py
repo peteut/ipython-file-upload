@@ -1,10 +1,11 @@
 import os
 import base64
-from IPython.html import widgets, install_nbextension
-from IPython.utils import traitlets
+import ipywidgets
+from notebook import install_nbextension
+import traitlets
 
 
-class FileUploadWidget(widgets.DOMWidget):
+class FileUploadWidget(ipywidgets.DOMWidget):
     '''File Upload Widget.
     This widget provides file upload using `FileReader`.
     '''
