@@ -30,7 +30,7 @@ class FileUploadWidget(ipywidgets.DOMWidget):
         except PermissionError:
             install_nbextension(self._view_static, user=True, verbose=0)
 
-        super().__init__(*args, **kwargs)
+        super(FileUploadWidget, self).__init__(*args, **kwargs)
         self._dom_classes += ('widget_item', 'btn-group')
 
     def _data_base64_changed(self, *args):
