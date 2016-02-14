@@ -1,22 +1,26 @@
 import os
 import base64
 import ipywidgets
-from notebook import install_nbextension
 import traitlets
+
+
+def _module_name():
+    return os.path.splitext(os.path.basename(__file__))[0]
+
+
+def _packet_name():
+    return os.path.basename(os.path.dirname(__file__))
 
 
 class FileUploadWidget(ipywidgets.DOMWidget):
     '''File Upload Widget.
     This widget provides file upload using `FileReader`.
     '''
-    module_name = os.path.splitext(os.path.basename(__file__))[0]
-    packet_name = os.path.basename(os.path.dirname(__file__))
     _view_static = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), 'static', packet_name))
-
+        os.path.join(os.path.dirname(__file__), 'static', _packet_name()))
     _view_name = traitlets.Unicode('FileUploadView', sync=True)
     _view_module = traitlets.Unicode(
-        os.path.join('nbextensions', packet_name, module_name),
+        os.path.join('nbextensions', _packet_name(), _module_name()),
         sync=True)
 
     filename = traitlets.Unicode(help='Filename of `data`.', sync=True)
@@ -25,11 +29,6 @@ class FileUploadWidget(ipywidgets.DOMWidget):
     data = traitlets.Bytes(help='File content.')
 
     def __init__(self, *args, **kwargs):
-        try:
-            install_nbextension(self._view_static, verbose=0)
-        except PermissionError:
-            install_nbextension(self._view_static, user=True, verbose=0)
-
         super(FileUploadWidget, self).__init__(*args, **kwargs)
         self._dom_classes += ('widget_item', 'btn-group')
 
