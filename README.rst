@@ -1,6 +1,14 @@
 IPython File Upload
 ===================
 
+.. image:: https://img.shields.io/pypi/v/fileupload.svg
+    :target https://pypi.python.org/pypi/fileupload/
+    :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/dm/fileupload.svg
+    :target: https://pypi.python.org/pypi/fileupload/
+    :alt: Downloads
+
 An IPython notebook widget to upload files, using FileReader_.
 
 Installation
