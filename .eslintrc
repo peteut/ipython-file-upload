@@ -4,6 +4,8 @@ env:
     browser: true
     amd: true
 rules:
+    no-unserscore-dangle:
+        - 2
     quotes:
         - 2
         - single

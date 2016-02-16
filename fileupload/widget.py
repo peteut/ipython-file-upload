@@ -18,14 +18,14 @@ class FileUploadWidget(ipywidgets.DOMWidget):
     '''
     _view_static = os.path.abspath(
         os.path.join(os.path.dirname(__file__), 'static', _packet_name()))
-    _view_name = traitlets.Unicode('FileUploadView', sync=True)
+    _view_name = traitlets.Unicode('FileUploadView').tag(sync=True)
     _view_module = traitlets.Unicode(
-        os.path.join('nbextensions', _packet_name(), _module_name()),
-        sync=True)
+        os.path.join('nbextensions', _packet_name(), _module_name())
+    ).tag(sync=True)
 
-    filename = traitlets.Unicode(help='Filename of `data`.', sync=True)
-    data_base64 = traitlets.Unicode(help='File content, base64 encoded.',
-                                    sync=True)
+    filename = traitlets.Unicode(help='Filename of `data`.').tag(sync=True)
+    data_base64 = traitlets.Unicode(help='File content, base64 encoded.'
+                                    ).tag(sync=True)
     data = traitlets.Bytes(help='File content.')
 
     def __init__(self, *args, **kwargs):
