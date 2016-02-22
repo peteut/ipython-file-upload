@@ -16,21 +16,35 @@ Installation
 
 Install using pip::
 
-    pip install -U git+https://github.com/peteut/ipython-file-upload#egg=fileupload
+    pip install -U fileupload
 
 Usage
 -----
 
 .. code-block:: python
 
+    import io
     from IPython.display import display
     import fileupload
 
     # Install Javascript
     fileupload.nbinstall()
 
-    upload_widget = fileupload.FileUploadWidget()
-    display(upload_widget)
+    def _upload():
+
+        _upload_widget = fileupload.FileUploadWidget()
+
+        def _cb(change):
+            decoded = io.StringIO(change['owner'].data.decode('utf-8'))
+            filename = change['owner'].filename
+            print('Uploaded `{}` ({:.2f} kB)'.format(
+                filename, len(decoded.read()) / 2 **10))
+
+        _upload_widget.observe(_cb, names='data')
+        display(_upload_widget)
+
+    _upload()
+
 
 Base64 data is synced to the ``data_base64``  member, decoded data can be
 obtained from ``data``.
