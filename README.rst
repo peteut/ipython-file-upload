@@ -16,7 +16,7 @@ Installation
 
 Install using pip::
 
-    pip install -U fileupload
+    pip install fileupload
 
 Usage
 -----
