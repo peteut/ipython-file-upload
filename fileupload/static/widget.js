@@ -1,8 +1,9 @@
 define([
     'jquery',
-    'widgets/js/widget'
-], function ($, widget) {
+    'jupyter-js-widgets'
+], function ($, widgets) {
 
+    'use strict';
     var _getId = (function () {
 
             var cnt = 0;
@@ -13,8 +14,7 @@ define([
             }
     })();
 
-    'use strict';
-    var FileUploadView = widget.DOMWidgetView.extend({
+    var FileUploadView = widgets.DOMWidgetView.extend({
 
         render: function render () {
 

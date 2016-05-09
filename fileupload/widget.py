@@ -1,27 +1,14 @@
-import os
 import base64
 import ipywidgets
 import traitlets
-
-
-def _module_name():
-    return os.path.splitext(os.path.basename(__file__))[0]
-
-
-def _packet_name():
-    return os.path.basename(os.path.dirname(__file__))
 
 
 class FileUploadWidget(ipywidgets.DOMWidget):
     '''File Upload Widget.
     This widget provides file upload using `FileReader`.
     '''
-    _view_static = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), 'static', _packet_name()))
     _view_name = traitlets.Unicode('FileUploadView').tag(sync=True)
-    _view_module = traitlets.Unicode(
-        os.path.join('nbextensions', _packet_name(), _module_name())
-    ).tag(sync=True)
+    _view_module = traitlets.Unicode('fileupload').tag(sync=True)
 
     filename = traitlets.Unicode(help='Filename of `data`.').tag(sync=True)
     data_base64 = traitlets.Unicode(help='File content, base64 encoded.'
