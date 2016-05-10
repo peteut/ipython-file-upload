@@ -17,6 +17,9 @@ Installation
 Install using pip::
 
     pip install fileupload
+    jupyter nbextension enable --py fileupload
+
+Install
 
 Usage
 -----
@@ -26,9 +29,6 @@ Usage
     import io
     from IPython.display import display
     import fileupload
-
-    # Install Javascript
-    fileupload.nbinstall()
 
     def _upload():
 
