@@ -8,8 +8,3 @@ if (window.require) {
         }
     });
 }
-
-
-module.exports = {
-    load_ipython_extension: function() {}
-};
