@@ -17,6 +17,7 @@ Installation
 Install using pip::
 
     pip install fileupload
+    jupyter nbextension install --py fileupload
     jupyter nbextension enable --py fileupload
 
 Install
