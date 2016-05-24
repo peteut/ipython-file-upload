@@ -20,8 +20,6 @@ Install using pip::
     jupyter nbextension install --py fileupload
     jupyter nbextension enable --py fileupload
 
-Install
-
 Usage
 -----
 
