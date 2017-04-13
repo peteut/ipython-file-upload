@@ -20,8 +20,10 @@ define([
 
             FileUploadView.__super__.render.apply(this, arguments);
             var id = _getId();
+            var label = this.model.get('label');
+            this.model.on('change:label', this._handleLabelChange, this);
             var $label = $('<label />')
-            .text('Browse')
+            .text(label)
             .addClass('btn btn-default')
             .attr('for', id)
             .appendTo(this.$el);
@@ -33,10 +35,14 @@ define([
             .appendTo($label);
         },
 
+        _handleLabelChange: function() {
+            var label = this.model.get('label');
+            this.$el.children("label").contents().first().replaceWith(label);
+        },
+
         events: {
             'change': '_handleFileChange'
         },
-
         _handleFileChange: function _handleFileChange (ev) {
 
             var file = ev.target.files[0];
