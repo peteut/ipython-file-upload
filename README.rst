@@ -9,6 +9,10 @@ IPython File Upload
     :target: https://pypi.python.org/pypi/fileupload/
     :alt: Downloads
 
+.. image:: https://beta.mybinder.org/badge.svg
+    :target: https://beta.mybinder.org/v2/gh/draperjames/fileupload2binder/master?filepath=index.ipynb
+    :alt: Binder
+
 An IPython notebook widget to upload files, using FileReader_.
 
 Installation
