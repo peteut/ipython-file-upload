@@ -17,8 +17,14 @@ Installation
 Install using pip::
 
     pip install fileupload
-    jupyter nbextension install --py fileupload
-    jupyter nbextension enable --py fileupload
+
+Install JavaScript::
+
+    jupyter nbextension install [--user] --py fileupload
+
+Enable the extension::
+
+    jupyter nbextension enable [--user] --py fileupload
 
 Usage
 -----
@@ -49,4 +55,10 @@ Base64 data is synced to the ``data_base64``  member, decoded data can be
 obtained from ``data``.
 The name of the uploaded file is stored in ``filename``.
 
+Changelog
+---------
+
+Refer to Changelog_.
+
 .. _FileReader: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+.. _Changelog: ./ChangeLog
